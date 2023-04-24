@@ -6,7 +6,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-
 /**
 * struct flags - struct containing pointers to functions
 *
@@ -29,13 +28,13 @@ struct flags
 typedef struct flags ff;
 
 int _printf(const char *form, ...);
-
+int _strlen(char *s);
 
 /* Funtions to print chars and strings */
 int print_char(va_list list);
 int print_str(va_list list);
 int _putchar(char c);
-int print_37(void);
+int print_37(va_list list);
 /* Functions to print numbers */
 int print_int(va_list list);
 #endif
