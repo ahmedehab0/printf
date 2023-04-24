@@ -1,5 +1,4 @@
 #include "main.h"
-int handle_print(const char *format, int *i, va_list list);
 /**
 * _printf - prints out string and arguments
 * @format: string to print

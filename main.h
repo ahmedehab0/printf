@@ -31,6 +31,7 @@ int _printf(const char *form, ...);
 int _strlen(char *s);
 
 /* Funtions to print chars and strings */
+int handle_print(const char *format, int *i, va_list list);
 int print_char(va_list list);
 int print_str(va_list list);
 int _putchar(char c);
