@@ -50,7 +50,7 @@ int handle_print(const char *format, int *i, va_list list)
 	ff function[] = {
 		{'c', print_char}, {'s', print_str},
 		{'%', print_37}, {'i', print_int},
-		{'d', print_int}, {NULL, NULL}
+		{'d', print_int}, {'\0', NULL}
 	};
 	int j;
 
