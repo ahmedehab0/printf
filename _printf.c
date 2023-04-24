@@ -27,7 +27,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			p = handle_print(format, &i, list);
+			if (format[i])
+				p = handle_print(format, &i, list);
+			else
+				p = -1;
 			if (p == -1)
 				return (-1);
 			pc += p;
