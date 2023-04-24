@@ -33,7 +33,7 @@ int _printf(const char *form, ...);
 
 /* Funtions to print chars and strings */
 int print_char(va_list list);
-int print_string(va_list list);
+int print_str(va_list list);
 int _putchar(char c);
 /* Functions to print numbers */
 int print_int(va_list list);
