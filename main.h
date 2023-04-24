@@ -10,8 +10,8 @@
 /**
 * struct flags - struct containing pointers to functions
 *
-* @in: format
-* @out: pointer to function assosciated
+* @c: format
+* @print: pointer to function assosciated
 */
 struct flags
 {
@@ -35,6 +35,7 @@ int _printf(const char *form, ...);
 int print_char(va_list list);
 int print_str(va_list list);
 int _putchar(char c);
+int print_37(void);
 /* Functions to print numbers */
 int print_int(va_list list);
 #endif

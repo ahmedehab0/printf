@@ -40,4 +40,7 @@ int print_int(va_list args)
     }
     return count;
 }
-
+int print_37(void)
+{
+	return (_putchar('%'));
+}
