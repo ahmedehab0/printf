@@ -18,7 +18,7 @@ int print_char(va_list args)
  */
 int print_str(va_list args)
 {
-	const char *s = va_arg(args, const char*);
+	char *s = va_arg(args, char*);
 	int len = _strlen(s);
 
 	write(STDOUT_FILENO, s, len);
@@ -38,19 +38,19 @@ int print_int(va_list args)
 
 	if (n < 0)
 	{
-		write(STDOUT_FILENO, '-', 1);
+		write(STDOUT_FILENO, &"-", 1);
 		n = -n;
 		count++;
 	}
-	for (i = 0; i < n; i++)
+	for (i = 0; n > 0; i++)
 	{
-		buffer[i++] = '0' + (n % 10);
+		buffer[i] = '0' + (n % 10);
 		n /= 10;
 
 	}
 	while (i > 0)
 	{
-		write(STDOUT_FILENO, buffer[--i], 1);
+		write(STDOUT_FILENO, &buffer[--i], 1);
 		count++;
 	}
 	return (count);
