@@ -32,8 +32,13 @@ int _printf(const char *format, ...)
 			else
 				p = -1;
 			if (p == -1)
-				return (-1);
-			pc += p;
+			{
+				print_37(list);
+				pc++;
+				i--;
+			}
+			else
+				pc += p;
 		}
 	}
 	va_end(list);
