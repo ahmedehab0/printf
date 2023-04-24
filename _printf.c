@@ -1,5 +1,5 @@
 #include "main.h"
-int handle_print(const char *format, int i, va_list list);
+int handle_print(const char *format, int *i, va_list list);
 /**
 * _printf - prints out string and arguments
 * @format: string to print
@@ -21,21 +21,16 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			(pc == -1) ? (_putchar(format[i])) : (pc += _putchar(format[i]));
+			_putchar(format[i]);
+			pc++;
 		}
 		else
 		{
-			if (!format[i + 1])
-				pc = -1;
-			p = handle_print(format, i + 1, list);
-			if (p == -1)
-				pc = -1;
-			else if (p == 0)
-				pc += _putchar(format[i + 1]);
-			else
-				pc += p;
 			i++;
-						
+			p = handle_print(format, &i, list);
+			if (p == -1)
+				return (-1);
+			pc += p;
 		}
 	}
 	va_end(list);
@@ -51,7 +46,7 @@ int _printf(const char *format, ...)
  */
 
 
-int handle_print(const char *format, int i, va_list list)
+int handle_print(const char *format, int *i, va_list list)
 {
 	ff function[] = {
 		{'c', print_char}, {'s', print_str},
@@ -62,7 +57,7 @@ int handle_print(const char *format, int i, va_list list)
 
 	for (j = 0; j < 6; ++j)
 	{
-		if (function[j].c == format[i])
+		if (function[j].c == format[*i])
 			return (function[j].print(list));
 	}
 	return (-1);
