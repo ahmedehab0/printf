@@ -48,7 +48,7 @@ int print_int(va_list args)
 		n = -n;
 		count++;
 	}
-	for (i; n > 0; i++)
+	for (; n > 0; i++)
 	{
 		buffer[i] = '0' + (n % 10);
 		n /= 10;
