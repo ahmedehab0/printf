@@ -30,13 +30,15 @@ int _printf(const char *format, ...)
 				p = handle_print(format, &i, list);
 			else
 				p = -1;
-			if (p == -1)
+			if (p == -1 && format[i])
 			{
 				print_37(list);
 				pc++;
 				i--;
 			}
-			else
+			else if (p == -1)
+				return (-1);
+			else if (p != -1)
 				pc += p;
 		}
 	}
