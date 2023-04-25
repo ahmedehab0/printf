@@ -35,7 +35,7 @@ int print_str(va_list args)
 
 int print_int(va_list args)
 {
-	int n = va_arg(args, int);
+	long int n = va_arg(args, int);
 	char buffer[16];
 	int i, count = 0;
 
