@@ -18,9 +18,12 @@ int print_char(va_list args)
  */
 int print_str(va_list args)
 {
+	int len;
 	char *s = va_arg(args, char*);
-	int len = _strlen(s);
 
+	if (!s)
+		s = "(null)";
+	len = _strlen(s);
 	write(STDOUT_FILENO, s, len);
 	return (len);
 }
