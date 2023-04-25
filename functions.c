@@ -36,8 +36,11 @@ int print_str(va_list args)
 int print_int(va_list args)
 {
 	long int n = va_arg(args, int);
-	char buffer[16];
-	int i, count = 0;
+	char buffer[BUFF_SIZE];
+	int i = 0, count = 0;
+
+	if (n == 0)
+		buffer[i++] = '0';
 
 	if (n < 0)
 	{
@@ -45,12 +48,13 @@ int print_int(va_list args)
 		n = -n;
 		count++;
 	}
-	for (i = 0; n > 0; i++)
+	for (i; n > 0; i++)
 	{
 		buffer[i] = '0' + (n % 10);
 		n /= 10;
 
 	}
+	buffer[i] = '\0';
 	while (i > 0)
 	{
 		write(STDOUT_FILENO, &buffer[--i], 1);
