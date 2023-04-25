@@ -37,7 +37,9 @@ int _printf(const char *format, ...)
 				pc++;
 				i--;
 			}
-			else
+			else if (p == -1)
+				return (-1);
+			else if (p != -1)
 				pc += p;
 		}
 	}
